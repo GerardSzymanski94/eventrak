@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/api-test', 'ApiTestController@index')->name('api-test');
 
 Auth::routes();
 
