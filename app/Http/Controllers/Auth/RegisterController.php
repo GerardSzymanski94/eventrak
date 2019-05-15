@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\UserInfo;
+use GusApi\Exception\InvalidUserKeyException;
+use GusApi\GusApi;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -43,13 +46,13 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nip' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -58,15 +61,56 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $gus = new GusApi('abcde12345abcde12345', 'dev');
+
+        try {
+            $nipToCheck = 5250007738;
+            $gus->login();
+            $gusReports = $gus->getByNip($data['nip']);
+            if (count($gusReports) > 1) {
+                die();
+            } else {
+                $gusReport = $gusReports[0];
+            }
+        } catch (InvalidUserKeyException $e) {
+            die();
+            echo 'Bad user key';
+        } catch (\GusApi\Exception\NotFoundException $e) {
+            die();
+            echo 'No data found <br>';
+            echo 'For more information read server message below: <br>';
+            echo $gus->getResultSearchMessage();
+        }
+
+        $user = User::create([
+            'name' => $data['nip'],
+            'nip' => $data['nip'],
+            'phone' => $data['phone'],
             'email' => $data['email'],
+            'admin' => 0,
             'password' => Hash::make($data['password']),
         ]);
+
+        UserInfo::create([
+            'user_id' => $user->id,
+            'nip' => $user->nip,
+            'regon' => $gusReport->getRegon(),
+            'regon14' => $gusReport->getRegon14(),
+            'name' => $gusReport->getName(),
+            'province' => $gusReport->getProvince(),
+            'district' => $gusReport->getDistrict(),
+            'community' => $gusReport->getCommunity(),
+            'city' => $gusReport->getCity(),
+            'zipCode' => $gusReport->getZipCode(),
+            'street' => $gusReport->getStreet(),
+            'type' => $gusReport->getType(),
+            'silo' => $gusReport->getSilo(),
+        ]);
+        return $user;
     }
 }

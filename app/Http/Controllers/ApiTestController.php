@@ -19,13 +19,21 @@ class ApiTestController extends Controller
             $nipToCheck = 5250007738; //change to valid nip value
             $gus->login();
             $gusReports = $gus->getByNip($nipToCheck);
-            dd($gusReports);
+            if (count($gusReports) > 1) {
+                return redirect()->back();
+            } else {
+                // $gusr =
+                $reportType = ReportTypes::REPORT_PUBLIC_LAW;
+                //echo $gusReport->getName();
+                $fullReport = $gus->getFullReport($gusReports[0], $reportType);
+                return $gusReports[0];
+            }
             foreach ($gusReports as $gusReport) {
                 //you can change report type to other one
+                dd($gusReports);
                 $reportType = ReportTypes::REPORT_PUBLIC_LAW;
-                echo $gusReport->getName();
+                //echo $gusReport->getName();
                 $fullReport = $gus->getFullReport($gusReport, $reportType);
-                var_dump($fullReport);
             }
         } catch (InvalidUserKeyException $e) {
             echo 'Bad user key';
