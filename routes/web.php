@@ -33,3 +33,9 @@ Route::prefix('photo')->name('photo.')->group(function () {
     Route::post('/store', 'PhotoController@store')->name('store');
     Route::post('/update/{user}', 'PhotoController@update')->name('update');
 });
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', 'AdminController@index')->name('index');
+    Route::get('/add', 'AdminController@create')->name('add');
+    Route::post('/store', 'AdminController@store')->name('store');
+    Route::post('/update/{user}', 'AdminController@update')->name('update');
+});
