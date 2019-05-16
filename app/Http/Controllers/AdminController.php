@@ -12,4 +12,9 @@ class AdminController extends Controller
         $users = User::where('admin', '!=', 1)->get();
         return view('admin.index', compact('users'));
     }
+
+    public function import()
+    {
+
+    }
 }
