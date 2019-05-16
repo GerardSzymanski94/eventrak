@@ -23,6 +23,11 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                    @if(\Illuminate\Support\Facades\Session::has('error_nip'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ \Illuminate\Support\Facades\Session::get('error_nip') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -45,7 +50,7 @@
 
                             <div class="form-group row">
                                 <label for="phone"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('phone') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="phone" type="number" maxlength="9"

@@ -23,3 +23,7 @@ Route::get('/api-test', 'ApiTestController@index')->name('api-test');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('user_info')->name('user_info.')->group(function () {
+    Route::get('/user_info', 'UserInfoController@index')->name('info');
+    Route::post('/update/{userInfo}', 'UserInfoController@update')->name('update');
+});
