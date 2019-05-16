@@ -84,7 +84,7 @@
                 </div>
             </li>
 
-            @if(auth()->user()->admin==1)
+            @if(auth()->user() && auth()->user()->admin==1)
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ route('admin.index') }}" data-target="#collapseUtilities"
                        aria-expanded="true" aria-controls="collapseUtilities">

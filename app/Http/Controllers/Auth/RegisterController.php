@@ -101,7 +101,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        $gus = new GusApi('abcde12345abcde12345', 'dev');
+        /*$gus = new GusApi('abcde12345abcde12345', 'dev');
 
         try {
             $nipToCheck = 5250007738;
@@ -123,7 +123,7 @@ class RegisterController extends Controller
             echo 'No data found <br>';
             echo 'For more information read server message below: <br>';
             echo $gus->getResultSearchMessage();
-        }
+        }*/
 
         event(new Registered($user = $this->create($request->all(), $gusReport)));
 

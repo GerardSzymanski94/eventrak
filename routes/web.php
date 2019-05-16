@@ -37,5 +37,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('/add', 'AdminController@create')->name('add');
     Route::post('/store', 'AdminController@store')->name('store');
-    Route::post('/update/{user}', 'AdminController@update')->name('update');
+    Route::get('/import', 'AdminController@import')->name('import');
 });
