@@ -18,7 +18,7 @@ class CreatePhotosTable extends Migration
             $table->integer('user_id');
             $table->integer('photo_type_id');
             $table->integer('rating')->nullable();
-            $table->integer('name');
+            $table->text('name');
             $table->timestamps();
         });
     }
