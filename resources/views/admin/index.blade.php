@@ -5,7 +5,10 @@
         <ul>
             @foreach($users as $user)
                 <li>
-                    {{ $user->name }}
+                    <a href="{{ route('admin.rating', ['user'=>$user->id]) }}">
+                        {{ $user->userInfo->name }}, {{ $user->userInfo->city }}, {{ $user->userInfo->zipCode }}
+                        ,{{ $user->userInfo->street }}
+                    </a>
                 </li>
             @endforeach
         </ul>
