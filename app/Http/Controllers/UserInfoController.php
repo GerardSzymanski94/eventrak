@@ -76,10 +76,10 @@ class UserInfoController extends Controller
         }
 
         $userInfo->name = $request->name;
-        $userInfo->province = $request->province;
-        $userInfo->district = $request->district;
+        $userInfo->province = '---';
+        $userInfo->district = '---';
         $userInfo->city = $request->city;
-        $userInfo->community = $request->community;
+        $userInfo->community = '---';
         $userInfo->zipCode = $request->zipCode;
         $userInfo->street = $request->street;
         $userInfo->save();

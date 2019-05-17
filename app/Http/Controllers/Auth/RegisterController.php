@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\UserBase;
 use App\UserInfo;
 use GusApi\Exception\InvalidUserKeyException;
 use GusApi\GusApi;
@@ -58,6 +59,7 @@ class RegisterController extends Controller
             'nip' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -68,39 +70,38 @@ class RegisterController extends Controller
      * @param  array $data
      * @return \App\User
      */
-    protected function create(array $data, $gusReport)
+    protected function create(array $data, $address)
     {
         $user = User::create([
-            'name' => $data['nip'],
+            'name' => $data['name'],
             'nip' => $data['nip'],
             'phone' => $data['phone'],
             'email' => $data['email'],
             'admin' => 0,
-            'password' => Hash::make($data['password']),
+            'password' => $data['password']
         ]);
 
         UserInfo::create([
             'user_id' => $user->id,
             'nip' => $user->nip,
-            'regon' => $gusReport->getRegon(),
-            'regon14' => $gusReport->getRegon14(),
-            'name' => $gusReport->getName(),
-            'province' => $gusReport->getProvince(),
-            'district' => $gusReport->getDistrict(),
-            'community' => $gusReport->getCommunity(),
-            'city' => $gusReport->getCity(),
-            'zipCode' => $gusReport->getZipCode(),
-            'street' => $gusReport->getStreet(),
-            'type' => $gusReport->getType(),
-            'silo' => $gusReport->getSilo(),
+            'regon' => '---',
+            'regon14' => '---',
+            'name' => $address->firma_nazwa,
+            'province' => '---',
+            'district' => '---',
+            'community' => '---',
+            'city' => $address->miejscowosc,
+            'zipCode' => $address->kod_pocztowy,
+            'street' => $address->ulica,
+            'type' => '---',
+            'silo' => '---',
         ]);
         return $user;
     }
 
-    public function register(Request $request)
+    public function register_post(Request $request)
     {
-        $this->validator($request->all())->validate();
-
+        //$this->validator($request->all())->validate();
         /*$gus = new GusApi('abcde12345abcde12345', 'dev');
 
         try {
@@ -125,11 +126,32 @@ class RegisterController extends Controller
             echo $gus->getResultSearchMessage();
         }*/
 
-        event(new Registered($user = $this->create($request->all(), $gusReport)));
+        $address = UserBase::find($request->address_id);
+
+        event(new Registered($user = $this->create($request->all(), $address)));
 
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
             ?: redirect()->route('user_info.info');
+    }
+
+    public function select_address(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $addresses = UserBase::where('nip', $request->nip)->get();
+
+        if (count($addresses) < 1) {
+            return redirect()->route('register')->with('error', 'Nie znaleziono NIP');
+        }
+
+        $nip = $request->nip;
+        $email = $request->email;
+        $name = $request->name;
+        $phone = $request->phone;
+        $password = Hash::make($request->password);
+        return view('auth.addresses', compact('nip', 'email', 'name', 'phone', 'password', 'addresses'));
+
+        dd(count($addresses));
     }
 }

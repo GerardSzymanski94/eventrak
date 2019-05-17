@@ -19,10 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/api-test', 'ApiTestController@index')->name('api-test');
-
+Route::post('register_post', 'Auth\RegisterController@register_post')->name('register_post');
 Auth::routes();
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/select_address', 'Auth\RegisterController@select_address')->name('select_address');
 Route::prefix('user_info')->name('user_info.')->group(function () {
     Route::get('/user_info', 'UserInfoController@index')->name('info');
     Route::post('/update/{userInfo}', 'UserInfoController@update')->name('update');

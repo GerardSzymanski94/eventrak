@@ -13,6 +13,9 @@
         <h3>NIP : {{ $info->nip }}</h3>
 
         <h4>
+            Login : {{ auth()->user()->name }}
+        </h4>
+        <h4>
             Email : {{ auth()->user()->email }}
         </h4>
         <h4>
@@ -36,18 +39,6 @@
             </div>
             <div class="form-group ">
                 <label class="control-label"
-                       for="province"> Województwo </label>
-                <input value="{{ old('province', $info->province ?? '') }}"
-                       type="text"
-                       class="form-control" name="province" id="province"
-                       placeholder="">
-                @if($errors->has('province'))
-                    <p class="alert alert-danger"> {{ $errors->first('province') }}
-                    </p>
-                @endif
-            </div>
-            <div class="form-group ">
-                <label class="control-label"
                        for="city"> Miasto </label>
                 <input value="{{ old('city', $info->city ?? '') }}"
                        type="text"
@@ -58,31 +49,7 @@
                     </p>
                 @endif
             </div>
-            <div class="form-group ">
-                <label class="control-label"
-                       for="district"> Rejon </label>
-                <input value="{{ old('district', $info->district ?? '') }}"
-                       type="text"
-                       class="form-control" name="district" id="district"
-                       placeholder="">
-                @if($errors->has('district'))
-                    <p class="alert alert-danger"> {{ $errors->first('district') }}
-                    </p>
-                @endif
-            </div>
 
-            <div class="form-group ">
-                <label class="control-label"
-                       for="community"> Dzielnica </label>
-                <input value="{{ old('community', $info->community ?? '') }}"
-                       type="text"
-                       class="form-control" name="community" id="community"
-                       placeholder="">
-                @if($errors->has('community'))
-                    <p class="alert alert-danger"> {{ $errors->first('community') }}
-                    </p>
-                @endif
-            </div>
             <div class="form-group ">
                 <label class="control-label"
                        for="zipCode"> Kod pocztowy </label>
