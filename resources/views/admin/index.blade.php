@@ -8,7 +8,7 @@
                 <li>
                     <a href="{{ route('admin.rating', ['user'=>$user->id]) }}">
                         {{ $user->userInfo->name }}, {{ $user->userInfo->city }}, {{ $user->userInfo->zipCode }}
-                        ,{{ $user->userInfo->street }}
+                        ,{{ $user->userInfo->street }} --- {{ $user->getPoints() }} pkt
                     </a>
                 </li>
             @endforeach

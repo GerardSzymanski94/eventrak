@@ -46,4 +46,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function getPoints()
+    {
+        $photos = $this->photos;
+        $points = 0;
+        foreach ($photos as $photo) {
+            if (isset($photo->rating))
+                $points += $photo->rating;
+        }
+        return $points;
+    }
 }
