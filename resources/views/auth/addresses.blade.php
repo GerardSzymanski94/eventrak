@@ -15,7 +15,6 @@
                             <input type="hidden" name="name" value="{{ $name }}">
                             <input type="hidden" name="email" value="{{ $email }}">
                             <input type="hidden" name="phone" value="{{ $phone }}">
-                            <input type="hidden" name="password" value="{{ $password }}">
 
                             <ul>
                                 @foreach($addresses as $address)

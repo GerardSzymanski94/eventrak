@@ -58,9 +58,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nip' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'name' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'name' => ['required', 'string', 'max:255']
         ]);
     }
 
@@ -78,7 +77,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'email' => $data['email'],
             'admin' => 0,
-            'password' => $data['password']
+            'password' => '1qazxsw2'
         ]);
 
         UserInfo::create([
@@ -133,7 +132,7 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
-            ?: redirect()->route('user_info.info');
+            ?: redirect()->route('photo.add');
     }
 
     public function select_address(Request $request)
@@ -149,7 +148,7 @@ class RegisterController extends Controller
         $email = $request->email;
         $name = $request->name;
         $phone = $request->phone;
-        $password = Hash::make($request->password);
+        //$password = Hash::make($request->password);
         return view('auth.addresses', compact('nip', 'email', 'name', 'phone', 'password', 'addresses'));
 
         dd(count($addresses));

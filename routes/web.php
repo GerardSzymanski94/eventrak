@@ -15,14 +15,14 @@
     return view('welcome');
 });*/
 
-Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('/');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/api-test', 'ApiTestController@index')->name('api-test')->middleware('admin');
 Route::post('register_post', 'Auth\RegisterController@register_post')->name('register_post');
 Auth::routes();
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+
+Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
