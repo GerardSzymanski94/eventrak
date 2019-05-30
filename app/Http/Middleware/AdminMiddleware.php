@@ -18,7 +18,7 @@ class AdminMiddleware
         if (auth()->user() && auth()->user()->admin == 1) {
             return $next($request);
         } else {
-            return redirect()->route('home');
+            return redirect()->route('login');
         }
     }
 }
