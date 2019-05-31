@@ -42,5 +42,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/add', 'AdminController@create')->name('add')->middleware('admin');
     Route::post('/store', 'AdminController@store')->name('store')->middleware('admin');
     Route::get('/import', 'AdminController@import')->name('import')->middleware('admin');
+    Route::get('/ranking', 'AdminController@ranking')->name('ranking')->middleware('admin');
     Route::get('/rating/{user}', 'AdminController@rating')->name('rating')->middleware('admin');
 });

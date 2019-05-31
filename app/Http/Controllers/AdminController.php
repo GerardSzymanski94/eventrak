@@ -14,15 +14,14 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::where('admin', '!=', 1)->get();
+        $users = User::where('admin', '!=', 1)->orderByDesc('id')->get();
         return view('admin.index', compact('users'));
     }
 
     public function import()
     {
         $excel = ImporterFacade::make('Excel');
-        $excel->load('excel/d3.xlsx');
-        // $excel->setSheet('1');
+        $excel->load('dane.xlsx');
         $collection = $excel->getCollection();
 
         $loop = 1;
@@ -31,16 +30,17 @@ class AdminController extends Controller
 
             } else {
                 UserBase::updateOrCreate([
-                    'nip' => $coll[0],
-                    'id_abc' => '-',
-                    'id_abc_sklep' => '-',
-                    'nazwa' => $coll[1],
-                    'kontakt' => $coll[5],
-                    'kod_pocztowy' => $coll[2],
-                    'miejscowosc' => $coll[3],
-                    'ulica' => $coll[4],
-                    'firma_nazwa' => $coll[1],
-                    'firma_kontakt' => $coll[6] . ' ' . $coll[7],
+                    'nip' => $coll[2],
+                    'id_abc' => $coll[0],
+                    'id_abc_sklep' => $coll[1],
+                ], [
+                    'nazwa' => $coll[3],
+                    'kontakt' => $coll[4],
+                    'kod_pocztowy' => $coll[5],
+                    'miejscowosc' => $coll[6],
+                    'ulica' => $coll[7],
+                    'firma_nazwa' => $coll[8],
+                    'firma_kontakt' => $coll[9],
                 ]);
             }
             $loop++;
@@ -72,5 +72,17 @@ class AdminController extends Controller
             }
         }
         return redirect()->back();
+    }
+
+    public function ranking()
+    {
+        $users = User::where('admin', '!=', '1')->get();
+        $ranking = array();
+        foreach ($users as $user) {
+            $ranking[$user->id] = $user->getPoints();
+        }
+        arsort($ranking);
+        // dd($ranking);
+        return view('admin.ranking', compact('ranking'));
     }
 }
