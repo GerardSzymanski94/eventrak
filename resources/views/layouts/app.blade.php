@@ -287,46 +287,52 @@
 
 
 <script type="text/javascript">
-    $('img').zoomify();
+    function showPhoto(id) {
+        $('.showphoto').each(function () {
+            $(this).hide();
+        });
+        $('#photo_' + id).toggle();
+    }
 
+    function closePhotos() {
+        $('.showphoto').each(function () {
+            $(this).hide();
+        });
+    }
 </script>
 <style>
-    .zoomify {
+    .showphoto {
+        /** Position and style */
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .topcorner {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .photomax {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .topcorner:hover {
         cursor: pointer;
-        cursor: -webkit-zoom-in;
+    }
+
+    .zoom:hover {
         cursor: zoom-in;
     }
 
-    .zoomify.zoomed {
-        cursor: -webkit-zoom-out;
-        cursor: zoom-out;
-        padding: 0;
-        margin: 0;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        position: relative;
-        z-index: 1501;
-    }
-
-    .zoomify-shadow {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        z-index: 1500;
-        background: rgba(0, 0, 0, .3);
-        opacity: 0;
-    }
-
-    .zoomify-shadow.zoomed {
-        opacity: 1;
-        cursor: pointer;
-        cursor: -webkit-zoom-out;
+    .showphoto:hover {
         cursor: zoom-out;
     }
 </style>

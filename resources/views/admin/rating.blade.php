@@ -21,7 +21,8 @@
                     @if(isset($photos[$photoType->id]) && \Illuminate\Support\Facades\Storage::exists('public/photo/' . $user->id. '/'.$photos[$photoType->id]->name))
                         <img src="{{ str_replace('/public_html', '', url('/')) . \Illuminate\Support\Facades\Storage::url('photo/' . $user->id. '/'.
                         $photos[$photoType->id]->name) }}"
-                             height="100px" width="100px" class="float-left thumbnail zoomify">
+                             height="100px" width="100px" class="float-left thumbnail zoom"
+                             onclick="showPhoto({{ $photoType->id }})">
                     @else
                         Brak zdjęcia
                     @endif
@@ -44,4 +45,19 @@
             </div>
         </form>
     </div>
+
+    <hr>
+
+    @foreach($photoTypes as $photoType)
+        <div id="photo_{{ $photoType->id }}" class="photo showphoto" style="display: none" onclick="closePhotos()">
+            <span class="topcorner" style="font-size: 50px">
+                x
+            </span>
+            @if(isset($photos[$photoType->id]) && \Illuminate\Support\Facades\Storage::exists('public/photo/' . $user->id. '/'.$photos[$photoType->id]->name))
+                <img src="{{ str_replace('/public_html', '', url('/')) . \Illuminate\Support\Facades\Storage::url('photo/' . $user->id. '/'.
+                        $photos[$photoType->id]->name) }}" class="photomax">
+            @endif
+        </div>
+    @endforeach
+
 @endsection
