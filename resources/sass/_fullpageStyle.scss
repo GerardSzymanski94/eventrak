@@ -79,11 +79,15 @@
       @include fluid-type( font-size, $min-width, $max-width, 22px, 46px );
 
       text-transform: uppercase;
-      bottom: 55%;
+
+      @include md {
+        bottom: 55%;
+      }
     }
 
     &-textSimple {
       left: 25px;
+      bottom: 15px;
       @include md {
         @include fluid-type( left, 768px, $max-width, 25px, 50px );
       }
@@ -91,6 +95,7 @@
 
     &-textClear {
       right: 25px;
+      bottom: 50px;
       @include md {
         @include fluid-type( right, 768px, $max-width, 15px, 30px );
       }
