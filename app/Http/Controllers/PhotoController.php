@@ -33,7 +33,7 @@ class PhotoController extends Controller
         foreach ($userPhotos as $photo) {
             $photos[$photo->photo_type_id] = $photo->name;
         }
-        return view('photo.add', compact('photoTypes', 'photos'));
+        return view('uploadImagesPage', compact('photoTypes', 'photos'));
     }
 
     /**
@@ -115,6 +115,6 @@ class PhotoController extends Controller
 
     public function thankyoupage()
     {
-        return view('photo.thankyoupage');
+        return view('thankyoupage');
     }
 }
