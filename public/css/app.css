@@ -276,7 +276,6 @@ img {
 .MainContainer-box-image-textClear {
   font-size: 22px;
   text-transform: uppercase;
-  bottom: 55%;
 }
 
 @media (min-width: 320px) {
@@ -293,8 +292,16 @@ img {
   }
 }
 
+@media (min-width: 768px) {
+  .MainContainer-box-image-textSimple,
+  .MainContainer-box-image-textClear {
+    bottom: 55%;
+  }
+}
+
 .MainContainer-box-image-textSimple {
   left: 25px;
+  bottom: 15px;
 }
 
 @media (min-width: 768px) {
@@ -317,6 +324,7 @@ img {
 
 .MainContainer-box-image-textClear {
   right: 25px;
+  bottom: 50px;
 }
 
 @media (min-width: 768px) {
