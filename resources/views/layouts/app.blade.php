@@ -21,6 +21,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/imgzoom.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
@@ -273,7 +274,9 @@
 
 
 <!-- Bootstrap core JavaScript-->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script src="{{ asset('js/zoomify.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- Core plugin JavaScript-->
@@ -282,5 +285,50 @@
 <!-- Custom scripts for all pages-->
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
+
+<script type="text/javascript">
+    $('img').zoomify();
+
+</script>
+<style>
+    .zoomify {
+        cursor: pointer;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+    }
+
+    .zoomify.zoomed {
+        cursor: -webkit-zoom-out;
+        cursor: zoom-out;
+        padding: 0;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        position: relative;
+        z-index: 1501;
+    }
+
+    .zoomify-shadow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1500;
+        background: rgba(0, 0, 0, .3);
+        opacity: 0;
+    }
+
+    .zoomify-shadow.zoomed {
+        opacity: 1;
+        cursor: pointer;
+        cursor: -webkit-zoom-out;
+        cursor: zoom-out;
+    }
+</style>
 </body>
 </html>

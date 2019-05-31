@@ -21,7 +21,7 @@
                     @if(isset($photos[$photoType->id]) && \Illuminate\Support\Facades\Storage::exists('public/photo/' . $user->id. '/'.$photos[$photoType->id]->name))
                         <img src="{{ str_replace('/public_html', '', url('/')) . \Illuminate\Support\Facades\Storage::url('photo/' . $user->id. '/'.
                         $photos[$photoType->id]->name) }}"
-                             height="100px" width="100px" class="float-left">
+                             height="100px" width="100px" class="float-left thumbnail zoomify">
                     @else
                         Brak zdjęcia
                     @endif
