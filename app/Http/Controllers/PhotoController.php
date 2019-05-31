@@ -6,6 +6,7 @@ use App\Photo;
 use App\PhotoType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
@@ -62,7 +63,8 @@ class PhotoController extends Controller
             return redirect()->back()->with('error', 'Nie dodałeś zdjęć');
         }
         Artisan::call('cache:clear');
-        return redirect()->back()->with('success', 'Dodano zdjęcia');
+        Auth::logout();
+        return redirect()->route('photo.thankyoupage');
 
     }
 
@@ -109,5 +111,10 @@ class PhotoController extends Controller
     public function destroy(Photo $photo)
     {
         //
+    }
+
+    public function thankyoupage()
+    {
+        return view('photo.thankyoupage');
     }
 }

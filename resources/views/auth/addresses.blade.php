@@ -20,7 +20,9 @@
                                 @foreach($addresses as $address)
                                     <li><label for="{{ $address->id }}">
                                             <input id="{{ $address->id }}" type="radio" name="address_id"
-                                                   value="{{ $address->id }}">{{ $address->miejscowosc }}</label></li>
+                                                   value="{{ $address->id }}">{{ $address->miejscowosc }}
+                                            , {{ $address->kod_pocztowy }}
+                                            , {{ $address->ulica }}</label></li>
                                 @endforeach
                             </ul>
                             <div class="form-group row mb-0">

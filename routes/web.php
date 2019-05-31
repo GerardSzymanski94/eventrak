@@ -35,6 +35,7 @@ Route::prefix('photo')->name('photo.')->group(function () {
     Route::get('/photo', 'PhotoController@index')->name('index')->middleware('user');
     Route::get('/add', 'PhotoController@create')->name('add')->middleware('user');
     Route::post('/store', 'PhotoController@store')->name('store')->middleware('user');
+    Route::get('/thankyoupage', 'PhotoController@thankyoupage')->name('thankyoupage');
     Route::post('/update/{user}', 'PhotoController@update')->name('update')->middleware('user');
 });
 Route::prefix('admin')->name('admin.')->group(function () {
