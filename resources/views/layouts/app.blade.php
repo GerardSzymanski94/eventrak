@@ -36,7 +36,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
-                <div class="sidebar-brand-text mx-3">Projekt</div>
+                <div class="sidebar-brand-text mx-3">Panel administratora</div>
             </a>
 
 
@@ -45,51 +45,68 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Opcje
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('user_info.info') }}"
-                   data-target="#collapseTwo"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Dane użytkownika</span>
-                </a>
-                {{--<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        --}}{{--<h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>--}}{{--
-                    </div>
-                </div>--}}
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('photo.add') }}" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-images"></i>
-                    <span>Dodaj zdjęcia</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        {{--<h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>--}}
-                    </div>
+        {{--<li class="nav-item">
+            <a class="nav-link" href="{{ route('user_info.info') }}"
+               data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Dane użytkownika</span>
+            </a>
+            --}}{{--<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    --}}{{----}}{{--<h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>--}}{{----}}{{--
                 </div>
-            </li>
+            </div>--}}{{--
+        </li>--}}
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+            {{-- <li class="nav-item">
+                 <a class="nav-link collapsed" href="{{ route('photo.add') }}" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                     <i class="fas fa-fw fa-images"></i>
+                     <span>Dodaj zdjęcia</span>
+                 </a>
+                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                         --}}{{--<h6 class="collapse-header">Custom Utilities:</h6>
+                         <a class="collapse-item" href="utilities-color.html">Colors</a>
+                         <a class="collapse-item" href="utilities-border.html">Borders</a>
+                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                         <a class="collapse-item" href="utilities-other.html">Other</a>--}}{{--
+                     </div>
+                 </div>
+             </li>--}}
 
             @if(auth()->user() && auth()->user()->admin==1)
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ route('admin.index') }}" data-target="#collapseUtilities"
                        aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-user-circle"></i>
-                        <span>Panel administratora</span>
+                        <span>Lista zgłoszeń</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            {{--<h6 class="collapse-header">Custom Utilities:</h6>
+                            <a class="collapse-item" href="utilities-color.html">Colors</a>
+                            <a class="collapse-item" href="utilities-border.html">Borders</a>
+                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                            <a class="collapse-item" href="utilities-other.html">Other</a>--}}
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ route('admin.ranking') }}" data-target="#collapseUtilities"
+                       aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-sort-numeric-up"></i>
+                        <span>Ranking</span>
                     </a>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                          data-parent="#accordionSidebar">
@@ -183,7 +200,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy; strona konkursowa 2019</span>
                     </div>
                 </div>
             </footer>
