@@ -1,0 +1,10 @@
+.logotype-page {
+  @include fluid-type( width, $min-width, $max-width, 125px, 256px );
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 25px;
+  overflow: hidden;
+  z-index: 99999;
+
+}

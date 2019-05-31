@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('/fonts/MyriadPro-Bold.eot');
+  src: url('/fonts/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/MyriadPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('/fonts/MyriadPro-Semibold.eot');
+  src: url('/fonts/MyriadPro-Semibold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/MyriadPro-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('/fonts/MyriadPro-Regular.eot');
+  src: url('/fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/MyriadPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo 900';
+  src: url('/fonts/Museo900-Regular.eot');
+  src: url('/fonts/Museo900-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/Museo900-Regular.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body.abcLayout-register {
+  font-family: 'Myriad Pro';
+  font-weight: normal;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-primary-abc {
+  width: 100%;
+  @include fluid-type( width, $min-width, $max-width, 200px, 250px );
+  @include fluid-type( height, $min-width, $max-width, 30px, 50px );
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+  border: 0;
+  @include fluid-type( font-size, $min-width, $max-width, 20px, 26px );
+  color: $white;
+
+  i {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+}

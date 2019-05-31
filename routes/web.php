@@ -25,6 +25,12 @@ Auth::routes();
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 
+Route::get('/zarejestruj-firme', 'NipPageController@index');
+Route::get('/podaj-adres', 'AdressPageController@index');
+Route::get('/zaladuj-zdjecia', 'UplodeImagesController@index');
+Route::get('/dziekujemy-za-udzial', 'ThankYouPageController@index');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/select_address', 'Auth\RegisterController@select_address')->name('select_address');
 Route::prefix('user_info')->name('user_info.')->group(function () {

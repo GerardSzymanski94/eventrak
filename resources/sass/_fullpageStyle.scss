@@ -1,0 +1,345 @@
+.MainContainer-box {
+  color: $red;
+
+  &-image {
+    width: 100%;
+    margin-bottom: 75px;
+
+    @include xl {
+      margin-bottom: 0;
+    }
+
+    position: relative;
+
+    &-textReady,
+    &-textSimple,
+    &-textClear {
+      position: absolute;
+      z-index: 999;
+      color: $white;
+      letter-spacing: -.4px;
+
+      h2 {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1;
+        text-align: center;
+        font-family: 'Museo 900';
+        font-weight: 900;
+        font-style: normal;
+      }
+    }
+
+    &-textReady {
+      width: 100%;
+      top: 75px;
+
+      @include md {
+        top: 125px;
+      }
+
+      @include xl {
+        width: auto;
+        top: 130px;
+        @include fluid-type( right, 1200px, $max-width, 50px, 100px );
+      }
+
+      h2 {
+        @include fluid-type( font-size, 320, 768px, 26px, 70px );
+        font-family: 'Museo 900';
+        font-weight: 900;
+        font-style: normal;
+        line-height: .9;
+
+        span {
+          @include fluid-type( font-size, 320, 768px, 26px, 64px );
+
+          @include xl {
+            @include fluid-type( font-size, 768px, $max-width, 32px, 64px );
+          }
+        }
+
+        @include md {
+          padding: 0 10px;
+        }
+
+        @include xl {
+          @include fluid-type( font-size, 768px, $max-width, 32px, 80px );
+        }
+      }
+    }
+
+    &-textSimple,
+    &-textClear {
+      @include fluid-type( font-size, $min-width, $max-width, 22px, 46px );
+
+      text-transform: uppercase;
+      bottom: 55%;
+    }
+
+    &-textSimple {
+      left: 25px;
+      @include md {
+        @include fluid-type( left, 768px, $max-width, 25px, 50px );
+      }
+    }
+
+    &-textClear {
+      right: 25px;
+      @include md {
+        @include fluid-type( right, 768px, $max-width, 15px, 30px );
+      }
+    }
+
+    &-background {
+      width: 100vw;
+      height: auto;
+      position: relative;
+      left: -1.5rem;
+
+
+      @include md {
+        width: calc(100% + 3rem);
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      @include xxl {
+        max-height: 100vh;
+      }
+    }
+  }
+
+  &-redLine {
+    width: auto;
+    height: 100%;
+    display: none;
+
+    @include xl {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -26px;
+    }
+  }
+
+  &-sign {
+    @include fluid-type( width, $min-width, $max-width, 100px, 350px );
+    position: absolute;
+    z-index: 990;
+    right: -20px;
+    @include fluid-type( bottom, $min-width, $max-width, -50px, -100px );
+
+    @include xl {
+      bottom: 50px;
+      @include fluid-type( right, 1200px, $max-width, -100px, -110px );
+    }
+
+  }
+
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @include md {
+      justify-content: space-around;
+    }
+
+    align-items: center;
+  }
+
+  &-register {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    @include fluid-type( margin-top, $min-width, $max-width, 15px, 30px );
+    margin-bottom: 15px;
+
+    h1 {
+      margin: 0;
+      @include fluid-type( line-height, $min-width, $max-width, 24px, 70px );
+      @include fluid-type( font-size, $min-width, $max-width, 24px, 70px );
+      font-weight: bold;
+    }
+
+    h2, h3 {
+      margin-bottom: 50px;
+      font-family: 'Museo 900';
+      font-weight: 900;
+      font-style: normal;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      @include fluid-type( line-height, $min-width, $max-width, 24px, 52px );
+      @include fluid-type( font-size, $min-width, $max-width, 24px, 52px );
+
+      small {
+        margin-top : 15px;
+      }
+    }
+
+    h3 {
+      margin-bottom: 0;
+      @include fluid-type( line-height, $min-width, $max-width, 20px, 36px );
+      @include fluid-type( font-size, $min-width, $max-width, 20px, 36px );
+    }
+  }
+
+  &-form {
+    margin-bottom: 20px;
+
+    &-group {
+      margin-bottom: 18px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-label {
+      margin: 0 0 7px 0;
+      @include fluid-type( font-size, $min-width, $max-width, 20px, 26px );
+    }
+
+    &-control {
+      @include fluid-type( width, $min-width, $max-width, 200px, 400px );
+      @include fluid-type( height, $min-width, $max-width, 30px, 45px );
+      padding: 5px;
+      border: 1px solid $red;
+      text-align: center;
+    }
+
+    &.uploadImage & {
+      &-group {
+        margin-bottom: 18px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-label {
+        margin: 0 0 7px 0;
+        @include fluid-type( font-size, $min-width, $max-width, 16px, 18px );
+
+        img {
+          width: 75px;
+          height: 75px;
+          margin-right: 15px;
+        }
+      }
+
+      &-control {
+        width: auto;
+        @include fluid-type( height, $min-width, $max-width, 30px, 45px );
+        padding: 5px;
+        border: 1px solid $red;
+        text-align: center;
+        display: none;
+      }
+    }
+  }
+
+  &-footer {
+    max-width: 500px;
+    @include fluid-type( margin-top, $min-width, $max-width, 20px, 50px );
+    text-align: center;
+    text-transform: uppercase;
+
+
+    @include xl {
+      max-width: 384px;
+      margin-top: 0;
+    }
+
+
+    &.thankyou {
+      max-width: unset;
+
+      h3 {
+        margin-bottom: 0 0 15px 0;
+        @include fluid-type( font-size, $min-width, $max-width, 20px, 48px );
+        font-weight: bold;
+      }
+
+      p {
+        @include fluid-type( font-size, $min-width, $max-width, 18px, 24px );
+        font-weight: 600;
+        color: $red;
+      }
+    }
+
+    h2 {
+      margin: auto;
+      @include fluid-type( line-height, $min-width, $max-width, 18px, 34px );
+      @include fluid-type( font-size, $min-width, $max-width, 18px, 34px );
+      font-weight: 600;
+    }
+
+    img {
+      @include fluid-type(  height, $min-width, $max-width, 30px, 65px );
+      margin: 15px 0 25px;
+
+      @include md {
+        margin: 0 0 15px;
+        @include fluid-type(  margin-bottom, $min-width, $max-width, 15px, 30px );
+      }
+    }
+
+    p {
+      margin: 0 0 15px 0;
+
+      @include xl {
+        margin: 0;
+      }
+
+      line-height: 20px;
+      @include fluid-type( font-size, $min-width, $max-width, 12px, 16px );
+      color: $black;
+    }
+  }
+
+  &-complete {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 75px;
+      height: 75px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+      @include fluid-type( font-size, $min-width, $max-width, 20px, 32px );
+      color: $green;
+    }
+  }
+}
