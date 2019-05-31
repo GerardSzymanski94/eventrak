@@ -81,8 +81,9 @@ class AdminController extends Controller
         foreach ($users as $user) {
             $ranking[$user->id] = $user->getPoints();
         }
+        $users = User::all();
+
         arsort($ranking);
-        // dd($ranking);
-        return view('admin.ranking', compact('ranking'));
+        return view('admin.ranking', compact('ranking', 'users'));
     }
 }

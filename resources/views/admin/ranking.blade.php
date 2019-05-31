@@ -20,10 +20,10 @@
         @foreach($ranking as $key=>$pkt)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $key }}</td>
-                <td>{{ $key }}</td>
-                <td>{{ $key }}</td>
-                <td>{{ $key }}</td>
+                <td>{{ $users->where('id', $key)->first()->userInfo->name }}</td>
+                <td>{{ $users->where('id', $key)->first()->name }}</td>
+                <td>{{ $users->where('id', $key)->first()->email }}</td>
+                <td>{{ $users->where('id', $key)->first()->phone }}</td>
                 <td>{{ $pkt }} pkt</td>
                 <td><a class="btn btn-primary" href="{{ route('admin.rating', ['user'=>$key]) }}">Zobacz</a></td>
             </tr>
