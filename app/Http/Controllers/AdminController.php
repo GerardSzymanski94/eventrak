@@ -71,7 +71,7 @@ class AdminController extends Controller
                 return redirect()->back();
             }
         }
-        return redirect()->back();
+        return redirect()->route('admin.index');
     }
 
     public function ranking()
