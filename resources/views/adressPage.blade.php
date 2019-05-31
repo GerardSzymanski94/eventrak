@@ -49,14 +49,15 @@
                                     <label for="selectListAdress" class="MainContainer-box-form-label">Wybierz adres
                                         sklepu</label>
 
-                                    @foreach($addresses as $address)
-                                        <select class="MainContainer-box-form-control" id="selectListAdress"
-                                                name="address_id">
+
+                                    <select class="MainContainer-box-form-control" id="selectListAdress"
+                                            name="address_id">
+                                        @foreach($addresses as $address)
                                             <option value="{{ $address->id }}">{{ $address->miejscowosc }}
                                                 , {{ $address->kod_pocztowy }}
                                                 , {{ $address->ulica }}</option>
-                                        </select>
-                                    @endforeach
+                                        @endforeach
+                                    </select>
 
                                 </div>
                                 <button type="submit" class="btn-primary-abc">Dalej <i class="fas fa-chevron-right"></i>
