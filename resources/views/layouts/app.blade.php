@@ -306,6 +306,11 @@
     .showphoto:hover {
         cursor: zoom-out;
     }
+
+    .thumbnail {
+        max-height: 100px !important;
+        max-width: 100px !important;
+    }
 </style>
 </body>
 

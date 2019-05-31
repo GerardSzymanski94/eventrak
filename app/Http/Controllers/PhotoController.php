@@ -115,6 +115,6 @@ class PhotoController extends Controller
 
     public function thankyoupage()
     {
-        return view('photo.thankyoupage');
+        return view('thankyoupage');
     }
 }
