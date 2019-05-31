@@ -1,37 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("/fonts/MyriadPro-Bold.eot");
-  src: url("/fonts/MyriadPro-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/MyriadPro-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("/fonts/MyriadPro-Semibold.eot");
-  src: url("/fonts/MyriadPro-Semibold.eot?#iefix") format("embedded-opentype"), url("/fonts/MyriadPro-Semibold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("/fonts/MyriadPro-Regular.eot");
-  src: url("/fonts/MyriadPro-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/MyriadPro-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Museo 900";
-  src: url("/fonts/Museo900-Regular.eot");
-  src: url("/fonts/Museo900-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/Museo900-Regular.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-}
-
 body.abcLayout-register {
   font-family: "Myriad Pro";
   font-weight: normal;
@@ -306,6 +274,7 @@ img {
 
 @media (min-width: 768px) {
   .MainContainer-box-image-textSimple {
+    bottom: 55%;
     left: 25px;
   }
 }
@@ -329,6 +298,7 @@ img {
 
 @media (min-width: 768px) {
   .MainContainer-box-image-textClear {
+    bottom: 55%;
     right: 15px;
   }
 }

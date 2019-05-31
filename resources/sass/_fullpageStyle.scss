@@ -89,6 +89,7 @@
       left: 25px;
       bottom: 15px;
       @include md {
+        bottom: 55%;
         @include fluid-type( left, 768px, $max-width, 25px, 50px );
       }
     }
@@ -97,6 +98,7 @@
       right: 25px;
       bottom: 50px;
       @include md {
+        bottom: 55%;
         @include fluid-type( right, 768px, $max-width, 15px, 30px );
       }
     }
