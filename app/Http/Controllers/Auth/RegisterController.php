@@ -149,7 +149,7 @@ class RegisterController extends Controller
         $name = $request->name;
         $phone = $request->phone;
         //$password = Hash::make($request->password);
-        return view('auth.addresses', compact('nip', 'email', 'name', 'phone', 'password', 'addresses'));
+        return view('adressPage', compact('nip', 'email', 'name', 'phone', 'password', 'addresses'));
 
         dd(count($addresses));
     }
