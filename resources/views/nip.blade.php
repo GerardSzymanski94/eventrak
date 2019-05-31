@@ -51,7 +51,7 @@
 
             <form class="MainContainer-box-form">
               <div class="MainContainer-box-form-group">
-                <label for="input" class="MainContainer-box-form-label">Wpisz  firmy</label>
+                <label for="input" class="MainContainer-box-form-label">Wpisz firmy</label>
                 <input type="number" class="MainContainer-box-form-control" id="input" placeholder="Podaj ">
               </div>
               <div class="MainContainer-box-form-group">

@@ -38,23 +38,37 @@
 
             <form class="MainContainer-box-form uploadImage">
               <div class="MainContainer-box-form-group">
-                <label for="selectImage1" class="MainContainer-box-form-label"><img src="{{ asset('images/ikona1.svg') }}"> Otoczenie sklepu przed przygotowaniem do sezonu</label>
+                <label for="selectImage1" class="MainContainer-box-form-label">
+                  <img src="{{ asset('images/ikona1.svg') }}">
+                  <p>Otoczenie sklepu przed przygotowaniem do sezonu</p>
+                </label>
                 <input type="file" class="MainContainer-box-form-control" id="selectImage1">
               </div>
               <div class="MainContainer-box-form-group">
-                <label for="selectImage2" class="MainContainer-box-form-label"><img src="{{ asset('images/ikona2.svg') }}">Otoczenie sklepu po przygotowaniach do sezonu</label>
+                <label for="selectImage2" class="MainContainer-box-form-label">
+                  <img src="{{ asset('images/ikona2.svg') }}">
+                  <p>Otoczenie sklepu po przygotowaniach do sezonu</p>
+                </label>
                 <input type="file" class="MainContainer-box-form-control" id="selectImage2">
               </div>
               <div class="MainContainer-box-form-group">
-                <label for="selectImage3" class="MainContainer-box-form-label"><img src="{{ asset('images/ikona3.svg') }}">Elewacja oraz szyby/witryny sklepu</label>
+                <label for="selectImage3" class="MainContainer-box-form-label">
+                  <img src="{{ asset('images/ikona3.svg') }}">
+                  <p>Elewacja oraz szyby/witryny sklepu</p></label>
                 <input type="file" class="MainContainer-box-form-control" id="selectImage3">
               </div>
               <div class="MainContainer-box-form-group">
-                <label for="selectImage4" class="MainContainer-box-form-label"><img src="{{ asset('images/ikona4.svg') }}">Drożna i uporządkowana strefa wejścia z ekspozycją owoców i warzyw</label>
+                <label for="selectImage4" class="MainContainer-box-form-label">
+                  <img src="{{ asset('images/ikona4.svg') }}">
+                  <p>Drożna i uporządkowana strefa wejścia z ekspozycją owoców i warzyw</p>
+                </label>
                 <input type="file" class="MainContainer-box-form-control" id="selectImage4">
               </div>
               <div class="MainContainer-box-form-group">
-                <label for="selectImage5" class="MainContainer-box-form-label"><img src="{{ asset('images/ikona5.svg') }}">Półka/ekspozycja/witryna sprzedażowa z produktami Partnera Konkursu</label>
+                <label for="selectImage5" class="MainContainer-box-form-label">
+                  <img src="{{ asset('images/ikona5.svg') }}">
+                  <p>Półka/ekspozycja/witryna sprzedażowa z produktami Partnera Konkursu</p>
+                </label>
                 <input type="file" class="MainContainer-box-form-control" id="selectImage5">
               </div>
 
