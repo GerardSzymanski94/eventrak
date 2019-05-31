@@ -14,7 +14,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::where('admin', '!=', 1)->get();
+        $users = User::where('admin', '!=', 1)->orderByDesc('id')->get();
         return view('admin.index', compact('users'));
     }
 
@@ -71,6 +71,19 @@ class AdminController extends Controller
                 return redirect()->back();
             }
         }
-        return redirect()->back();
+        return redirect()->route('admin.index');
+    }
+
+    public function ranking()
+    {
+        $users = User::where('admin', '!=', '1')->get();
+        $ranking = array();
+        foreach ($users as $user) {
+            $ranking[$user->id] = $user->getPoints();
+        }
+        $users = User::all();
+
+        arsort($ranking);
+        return view('admin.ranking', compact('ranking', 'users'));
     }
 }
