@@ -46,46 +46,46 @@
                                                 src="{{ asset('images/ikona1.svg') }}"> Otoczenie sklepu przed
                                         przygotowaniem do sezonu</label>
                                     <input type="file" class="MainContainer-box-form-control" id="selectImage1"
-                                           name="files[1]">
+                                           name="files[1]" required>
                                 </div>
                                 <div class="MainContainer-box-form-group">
                                     <label for="selectImage2" class="MainContainer-box-form-label"><img
                                                 src="{{ asset('images/ikona2.svg') }}">Otoczenie sklepu po
                                         przygotowaniach do sezonu</label>
                                     <input type="file" class="MainContainer-box-form-control" id="selectImage2"
-                                           name="files[2]">
+                                           name="files[2]" required>
                                 </div>
                                 <div class="MainContainer-box-form-group">
                                     <label for="selectImage3" class="MainContainer-box-form-label"><img
                                                 src="{{ asset('images/ikona3.svg') }}">Elewacja oraz szyby/witryny
                                         sklepu</label>
                                     <input type="file" class="MainContainer-box-form-control" id="selectImage3"
-                                           name="files[3]">
+                                           name="files[3]" required>
                                 </div>
                                 <div class="MainContainer-box-form-group">
                                     <label for="selectImage4" class="MainContainer-box-form-label"><img
                                                 src="{{ asset('images/ikona4.svg') }}">Drożna i uporządkowana strefa
                                         wejścia z ekspozycją owoców i warzyw</label>
                                     <input type="file" class="MainContainer-box-form-control" id="selectImage4"
-                                           name="files[4]">
+                                           name="files[4]" required>
                                 </div>
                                 <div class="MainContainer-box-form-group">
                                     <label for="selectImage5" class="MainContainer-box-form-label"><img
                                                 src="{{ asset('images/ikona5.svg') }}">Półka/ekspozycja/witryna
                                         sprzedażowa z produktami Partnera Konkursu</label>
                                     <input type="file" class="MainContainer-box-form-control" id="selectImage5"
-                                           name="files[5]">
+                                           name="files[5]" required>
                                 </div>
 
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="checkRule">
+                                    <input type="checkbox" class="form-check-input" id="checkRule" required>
                                     <label class="form-check-label" for="checkRule">Zapoznałem się i akceptuję treść
                                         Regulaminu Promocji. Oświadczam, iż zapoznałam/em się z Regulaminem Programu
                                         organizowanego przez EVENTRAK SP. Z o.o. oraz akceptuę jego postanowienia.
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="checkAccept">
+                                    <input type="checkbox" class="form-check-input" id="checkAccept" required>
                                     <label class="form-check-label" for="checkAccept">Potwierdzam wykonanie przez
                                         Organizatora tj. EVENTRAK sp. z o.o. obowiązku informacyjnego dotyczącego
                                         przetwarzania danych osobowych uczestnika Promocji w ramach Regulaminu

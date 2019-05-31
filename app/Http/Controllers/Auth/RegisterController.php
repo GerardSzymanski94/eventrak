@@ -141,7 +141,7 @@ class RegisterController extends Controller
         $addresses = UserBase::where('nip', $request->nip)->get();
 
         if (count($addresses) < 1) {
-            return redirect()->route('register')->with('error', 'Nie znaleziono NIP');
+            return redirect()->route('/')->with('error', 'Nie znaleziono NIP');
         }
 
         $nip = $request->nip;
