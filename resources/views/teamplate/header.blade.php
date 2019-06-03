@@ -4,7 +4,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Gotowi na sezon</title>
+<title>Przygotowani na sezon</title>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>

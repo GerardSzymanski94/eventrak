@@ -28,7 +28,7 @@
                     @endif
                     <select class="custom-select form-control" id="rating_{{ $photoType->id }}"
                             name="rating[{{ $photoType->id }}]">
-                        @for($i=1; $i<=10; $i++)
+                        @for($i=0; $i<=$photoType->max_pkt; $i++)
                             <option value="{{ $i }}"
                                     @if(isset($photos[$photoType->id]->rating) && $photos[$photoType->id]->rating == $i) selected @endif>{{ $i }}</option>
                         @endfor
