@@ -345,7 +345,7 @@
 
       p {
         @include fluid-type( font-size, $min-width, $max-width, 18px, 24px );
-        font-weight: 600;
+        font-weight: 700;
         color: $red;
       }
     }
