@@ -97,6 +97,7 @@ img {
 
 .MainContainer-box-image {
   width: 100%;
+  height: 100%;
   margin-bottom: 75px;
   position: relative;
 }
@@ -104,6 +105,12 @@ img {
 @media (min-width: 1200px) {
   .MainContainer-box-image {
     margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  .MainContainer-box-image {
+    height: 100vh;
   }
 }
 
@@ -319,15 +326,9 @@ img {
 @media (min-width: 768px) {
   .MainContainer-box-image-background {
     width: calc(100% + 3rem);
-    height: 100vh;
+    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
-  }
-}
-
-@media (min-width: 1920px) {
-  .MainContainer-box-image-background {
-    max-height: 100vh;
   }
 }
 
@@ -446,25 +447,25 @@ img {
 
 @media (min-width: 320px) {
   .MainContainer-box-title h1 {
-    line-height: calc(24px + 46 * (100vw - 320px) / 1600);
+    line-height: calc(24px + 38 * (100vw - 320px) / 1600);
   }
 }
 
 @media (min-width: 1920px) {
   .MainContainer-box-title h1 {
-    line-height: 70px;
+    line-height: 62px;
   }
 }
 
 @media (min-width: 320px) {
   .MainContainer-box-title h1 {
-    font-size: calc(24px + 46 * (100vw - 320px) / 1600);
+    font-size: calc(24px + 38 * (100vw - 320px) / 1600);
   }
 }
 
 @media (min-width: 1920px) {
   .MainContainer-box-title h1 {
-    font-size: 70px;
+    font-size: 62px;
   }
 }
 
@@ -562,18 +563,18 @@ img {
 
 .MainContainer-box-form-label {
   margin: 0 0 7px 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 @media (min-width: 320px) {
   .MainContainer-box-form-label {
-    font-size: calc(20px + 6 * (100vw - 320px) / 1600);
+    font-size: calc(18px + 4 * (100vw - 320px) / 1600);
   }
 }
 
 @media (min-width: 1920px) {
   .MainContainer-box-form-label {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 
@@ -714,13 +715,13 @@ img {
 
 @media (min-width: 320px) {
   .MainContainer-box-footer {
-    margin-top: calc(20px + 30 * (100vw - 320px) / 1600);
+    margin-top: calc(20px + 16 * (100vw - 320px) / 1600);
   }
 }
 
 @media (min-width: 1920px) {
   .MainContainer-box-footer {
-    margin-top: 50px;
+    margin-top: 36px;
   }
 }
 
@@ -743,13 +744,13 @@ img {
 
 @media (min-width: 320px) {
   .MainContainer-box-footer.thankyou h3 {
-    font-size: calc(20px + 28 * (100vw - 320px) / 1600);
+    font-size: calc(20px + 16 * (100vw - 320px) / 1600);
   }
 }
 
 @media (min-width: 1920px) {
   .MainContainer-box-footer.thankyou h3 {
-    font-size: 48px;
+    font-size: 36px;
   }
 }
 
