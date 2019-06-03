@@ -82,6 +82,8 @@
                                     <label class="form-check-label" for="checkRule">Zapoznałem się i akceptuję treść
                                         Regulaminu Promocji. Oświadczam, iż zapoznałam/em się z Regulaminem Programu
                                         organizowanego przez EVENTRAK SP. Z o.o. oraz akceptuę jego postanowienia.
+                                        <a href="https://przygotowaninasezon.pl/Regulamin_konkurs_przygotuj_sie_z_nami_na_sezon_2019.pdf"
+                                           target="_blank"> Zobacz regulamin</a>
                                     </label>
                                 </div>
                                 <div class="form-check">
