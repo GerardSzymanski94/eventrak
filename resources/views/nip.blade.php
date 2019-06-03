@@ -52,21 +52,22 @@
                             <form method="POST" action="{{ route('select_address') }}" class="MainContainer-box-form">
                                 @csrf
                                 <div class="MainContainer-box-form-group">
-                                    <label for="input" class="MainContainer-box-form-label">Wpisz NIP firmy</label>
+                                    <label for="input" class="MainContainer-box-form-label">Wpisz NIP firmy*</label>
                                     <input type="text" class="MainContainer-box-form-control" id="input"
-                                           placeholder="Podaj " name="nip">
-                                    @error('nip')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                           placeholder="Podaj " name="nip" value="{{ old('nip' ?? '') }}">
+                                    @if(\Illuminate\Support\Facades\Session::has('error_nip'))
+                                        <span class="invalid-feedback" role="alert" style="display: block">
+                                        <strong>{{ \Illuminate\Support\Facades\Session::get('error_nip') }}</strong>
                                     </span>
-                                    @enderror
+                                    @endif
                                 </div>
                                 <div class="MainContainer-box-form-group">
-                                    <label for="inputName" class="MainContainer-box-form-label">Imię i Nazwisko</label>
+                                    <label for="inputName" class="MainContainer-box-form-label">Imię i Nazwisko*</label>
                                     <input type="text" class="MainContainer-box-form-control" id="inputName"
-                                           placeholder="Podaj imię i nazwisko" name="name">
+                                           placeholder="Podaj imię i nazwisko" name="name"
+                                           value="{{ old('name' ?? '') }}">
                                     @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert" style="display: block">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -74,7 +75,8 @@
                                 <div class="MainContainer-box-form-group">
                                     <label for="inputEmail" class="MainContainer-box-form-label">Adres E-mail</label>
                                     <input type="email" class="MainContainer-box-form-control" id="inputEmail"
-                                           placeholder="Podaj adres e-mail" name="email">
+                                           placeholder="Podaj adres e-mail" name="email"
+                                           value="{{ old('email' ?? '') }}">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -85,7 +87,8 @@
                                     <label for="inputPhone" class="MainContainer-box-form-label">Telefon
                                         Kontaktowy</label>
                                     <input type="number" class="MainContainer-box-form-control" id="inputPhone"
-                                           placeholder="Podaj telefon kontaktowy" name="phone">
+                                           placeholder="Podaj telefon kontaktowy" name="phone"
+                                           value="{{ old('phone' ?? '') }}">
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

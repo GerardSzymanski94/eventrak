@@ -58,8 +58,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nip' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['nullable', 'string', 'max:255'],
+            'email' => ['nullable', 'string', 'email', 'max:255'],
             'name' => ['required', 'string', 'max:255']
         ]);
     }
@@ -75,11 +75,16 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'nip' => $data['nip'],
-            'phone' => $data['phone'],
-            'email' => $data['email'],
             'admin' => 0,
             'password' => '1qazxsw2'
         ]);
+        if (isset($data['email'])) {
+            $user->email = $data['email'];
+        }
+        if (isset($data['phone'])) {
+            $user->phone = $data['phone'];
+        }
+        $user->save();
 
         UserInfo::create([
             'user_id' => $user->id,
@@ -142,7 +147,7 @@ class RegisterController extends Controller
         $addresses = UserBase::where('nip', $request->nip)->get();
 
         if (count($addresses) < 1) {
-            return redirect()->route('/')->with('error', 'Nie znaleziono NIP');
+            return redirect()->route('/')->with('error_nip', 'Nie znaleziono NIP');
         }
 
         $nip = $request->nip;
