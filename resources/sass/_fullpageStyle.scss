@@ -44,9 +44,11 @@
       }
 
       @include xl {
-        width: auto;
+        width: 100%;
         top: 130px;
-        @include fluid-type( right, 1200px, $max-width, 50px, 100px );
+        // @include fluid-type( right, 1200px, $max-width, 50px, 100px );
+        right: 50%;
+        transform: translateX(50%);
       }
 
       h2 {

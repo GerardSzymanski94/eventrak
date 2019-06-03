@@ -148,21 +148,11 @@ img {
 
 @media (min-width: 1200px) {
   .MainContainer-box-image-textReady {
-    width: auto;
+    width: 100%;
     top: 130px;
-    right: 50px;
-  }
-}
-
-@media (min-width: 1200px) and (min-width: 1200px) {
-  .MainContainer-box-image-textReady {
-    right: calc(50px + 50 * (100vw - 1200px) / 720);
-  }
-}
-
-@media (min-width: 1200px) and (min-width: 1920px) {
-  .MainContainer-box-image-textReady {
-    right: 100px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
   }
 }
 
