@@ -39,7 +39,7 @@
 
 
             <div class="row form-group">
-                <input type="submit" value="Wyślij" class="btn btn-primary">
+                <input type="submit" value="Zapisz" class="btn btn-primary">
 
                 <a style="margin-left: 25px" class="btn btn-danger" href="{{ route('admin.index') }}">Anuluj</a>
             </div>
