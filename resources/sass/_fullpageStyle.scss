@@ -354,7 +354,7 @@
       margin: auto;
       @include fluid-type( line-height, $min-width, $max-width, 18px, 34px );
       @include fluid-type( font-size, $min-width, $max-width, 18px, 34px );
-      font-weight: 600;
+      font-weight: 700;
     }
 
     img {
