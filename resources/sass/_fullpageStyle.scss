@@ -14,6 +14,10 @@
       height: 100vh;
     }
 
+    @media only screen and (max-width: 1199px) {
+      height: auto;
+    }
+
     position: relative;
 
     &-textReady,
@@ -103,7 +107,7 @@
 
     &-textClear {
       right: 25px;
-      bottom: 50px;
+      bottom: 75px;
       @include md {
         bottom: 55%;
         @include fluid-type( right, 768px, $max-width, 15px, 30px );
@@ -120,6 +124,7 @@
       @include md {
         width: calc(100% + 3rem);
         height: 100%;
+        -o-object-fit: cover;
         object-fit: cover;
       }
     }
