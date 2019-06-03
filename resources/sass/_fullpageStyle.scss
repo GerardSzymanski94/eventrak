@@ -61,17 +61,17 @@
       }
 
       h2 {
-        @include fluid-type( font-size, 320, 768px, 26px, 70px );
+        @include fluid-type(font-size, 320, 768px, 26px, 70px);
         font-family: 'Museo 900';
         font-weight: 900;
         font-style: normal;
         line-height: .9;
 
         span {
-          @include fluid-type( font-size, 320, 768px, 26px, 64px );
+          @include fluid-type(font-size, 320, 768px, 26px, 64px);
 
           @include xl {
-            @include fluid-type( font-size, 768px, $max-width, 32px, 64px );
+            @include fluid-type(font-size, 768px, $max-width, 32px, 64px);
           }
         }
 
@@ -80,14 +80,14 @@
         }
 
         @include xl {
-          @include fluid-type( font-size, 768px, $max-width, 32px, 80px );
+          @include fluid-type(font-size, 768px, $max-width, 32px, 80px);
         }
       }
     }
 
     &-textSimple,
     &-textClear {
-      @include fluid-type( font-size, $min-width, $max-width, 22px, 46px );
+      @include fluid-type(font-size, $min-width, $max-width, 22px, 46px);
 
       text-transform: uppercase;
 
@@ -101,7 +101,7 @@
       bottom: 15px;
       @include md {
         bottom: 55%;
-        @include fluid-type( left, 768px, $max-width, 25px, 50px );
+        @include fluid-type(left, 768px, $max-width, 25px, 50px);
       }
     }
 
@@ -110,7 +110,7 @@
       bottom: 75px;
       @include md {
         bottom: 55%;
-        @include fluid-type( right, 768px, $max-width, 15px, 30px );
+        @include fluid-type(right, 768px, $max-width, 15px, 30px);
       }
     }
 
@@ -119,7 +119,6 @@
       height: auto;
       position: relative;
       left: -1.5rem;
-
 
       @include md {
         width: calc(100% + 3rem);
@@ -144,15 +143,15 @@
   }
 
   &-sign {
-    @include fluid-type( width, $min-width, $max-width, 100px, 350px );
+    @include fluid-type(width, $min-width, $max-width, 100px, 350px);
     position: absolute;
     z-index: 990;
     right: -20px;
-    @include fluid-type( bottom, $min-width, $max-width, -50px, -100px );
+    @include fluid-type(bottom, $min-width, $max-width, -50px, -100px);
 
     @include xl {
       bottom: 50px;
-      @include fluid-type( right, 1200px, $max-width, -100px, -110px );
+      @include fluid-type(right, 1200px, $max-width, -100px, -110px);
     }
 
   }
@@ -180,13 +179,13 @@
   }
 
   &-title {
-    @include fluid-type( margin-top, $min-width, $max-width, 15px, 30px );
+    @include fluid-type(margin-top, $min-width, $max-width, 15px, 30px);
     margin-bottom: 15px;
 
     h1 {
       margin: 0;
-      @include fluid-type( line-height, $min-width, $max-width, 24px, 62px );
-      @include fluid-type( font-size, $min-width, $max-width, 24px, 62px );
+      @include fluid-type(line-height, $min-width, $max-width, 24px, 62px);
+      @include fluid-type(font-size, $min-width, $max-width, 24px, 62px);
       font-weight: bold;
     }
 
@@ -198,18 +197,18 @@
       text-transform: uppercase;
       text-align: center;
       font-weight: 600;
-      @include fluid-type( line-height, $min-width, $max-width, 24px, 52px );
-      @include fluid-type( font-size, $min-width, $max-width, 24px, 52px );
+      @include fluid-type(line-height, $min-width, $max-width, 24px, 52px);
+      @include fluid-type(font-size, $min-width, $max-width, 24px, 52px);
 
       small {
-        margin-top : 15px;
+        margin-top: 15px;
       }
     }
 
     h3 {
       margin-bottom: 0;
-      @include fluid-type( line-height, $min-width, $max-width, 20px, 36px );
-      @include fluid-type( font-size, $min-width, $max-width, 20px, 36px );
+      @include fluid-type(line-height, $min-width, $max-width, 20px, 36px);
+      @include fluid-type(font-size, $min-width, $max-width, 20px, 36px);
     }
   }
 
@@ -231,12 +230,12 @@
 
     &-label {
       margin: 0 0 7px 0;
-      @include fluid-type( font-size, $min-width, $max-width, 18px, 22px );
+      @include fluid-type(font-size, $min-width, $max-width, 18px, 22px);
     }
 
     &-control {
-      @include fluid-type( width, $min-width, $max-width, 200px, 400px );
-      @include fluid-type( height, $min-width, $max-width, 30px, 45px );
+      @include fluid-type(width, $min-width, $max-width, 200px, 400px);
+      @include fluid-type(height, $min-width, $max-width, 30px, 45px);
       padding: 5px;
       border: 1px solid $red;
       text-align: center;
@@ -250,7 +249,6 @@
         @include md {
           max-width: 642px;
         }
-
 
         margin-bottom: 10px;
         font-size: 14px;
@@ -291,9 +289,9 @@
           flex-direction: row;
         }
 
-        @include fluid-type( font-size, $min-width, $max-width, 16px, 18px );
+        @include fluid-type(font-size, $min-width, $max-width, 16px, 18px);
 
-        display:flex;
+        display: flex;
         flex-direction: row;
         justify-items: flex-start;
         align-items: center;
@@ -313,7 +311,7 @@
 
       &-control {
         width: auto;
-        @include fluid-type( height, $min-width, $max-width, 30px, 45px );
+        @include fluid-type(height, $min-width, $max-width, 30px, 45px);
         padding: 5px;
         border: 1px solid $red;
         text-align: center;
@@ -323,28 +321,26 @@
 
   &-footer {
     max-width: 500px;
-    @include fluid-type( margin-top, $min-width, $max-width, 20px, 36px );
+    @include fluid-type(margin-top, $min-width, $max-width, 20px, 36px);
     text-align: center;
     text-transform: uppercase;
-
 
     @include xl {
       max-width: 384px;
       margin-top: 0;
     }
 
-
     &.thankyou {
       max-width: unset;
 
       h3 {
         margin-bottom: 0 0 15px 0;
-        @include fluid-type( font-size, $min-width, $max-width, 20px, 36px );
+        @include fluid-type(font-size, $min-width, $max-width, 20px, 36px);
         font-weight: bold;
       }
 
       p {
-        @include fluid-type( font-size, $min-width, $max-width, 18px, 24px );
+        @include fluid-type(font-size, $min-width, $max-width, 18px, 24px);
         font-weight: 700;
         color: $red;
       }
@@ -358,12 +354,12 @@
     }
 
     img {
-      @include fluid-type(  height, $min-width, $max-width, 30px, 65px );
+      @include fluid-type(height, $min-width, $max-width, 30px, 65px);
       margin: 15px 0 25px;
 
       @include md {
         margin: 0 0 15px;
-        @include fluid-type(  margin-bottom, $min-width, $max-width, 15px, 30px );
+        @include fluid-type(margin-bottom, $min-width, $max-width, 15px, 30px);
       }
     }
 
@@ -375,7 +371,7 @@
       }
 
       line-height: 20px;
-      @include fluid-type( font-size, $min-width, $max-width, 12px, 16px );
+      @include fluid-type(font-size, $min-width, $max-width, 12px, 16px);
       color: $black;
     }
   }
@@ -396,7 +392,7 @@
     p {
       margin: 0;
       text-align: center;
-      @include fluid-type( font-size, $min-width, $max-width, 20px, 32px );
+      @include fluid-type(font-size, $min-width, $max-width, 20px, 32px);
       color: $green;
     }
   }
