@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Stats;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         Auth::logout();
+
+        $stats = new Stats();
+        $stats->count = 1;
+        $stats->save();
         return view('nip');
     }
 }

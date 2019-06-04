@@ -72,6 +72,7 @@ class AdminController extends Controller
                 return redirect()->back();
             }
         }
+        User::whereId($request->user_id)->update(['status' => 3]);
         return redirect()->route('admin.index');
     }
 

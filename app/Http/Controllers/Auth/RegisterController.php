@@ -76,7 +76,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'nip' => $data['nip'],
             'admin' => 0,
-            'password' => '1qazxsw2'
+            'password' => '1qazxsw2',
+            'status' => 1
         ]);
         if (isset($data['email'])) {
             $user->email = $data['email'];
