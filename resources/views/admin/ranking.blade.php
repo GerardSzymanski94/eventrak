@@ -2,6 +2,7 @@
 
 @section('content')
     <h4> Ranking </h4>
+    <h5> Widoczne są tylko ocenione zgłoszenia </h5>
 
     <table class="table">
         <thead>

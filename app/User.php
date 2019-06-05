@@ -57,4 +57,22 @@ class User extends Authenticatable
         }
         return $points;
     }
+
+    public function getStatus()
+    {
+        $status = $this->status;
+        switch ($status) {
+            case(0):
+            case(1):
+                return "<span style='color:red'>niedokończony</span>";
+                break;
+            case (2):
+                return "<span style='color:yellow'>dokończone - nieocenione</span>";
+                break;
+            case(3):
+                return "<span style='color:green'>zgłoszenie ocenione</span>";
+                break;
+        }
+        return 'niedokończony';
+    }
 }

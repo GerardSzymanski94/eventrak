@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\StatsChart;
 use App\Photo;
 use App\PhotoType;
+use App\Stats;
 use App\User;
 use App\UserBase;
 use Cyberduck\LaravelExcel\ImporterFacade;
@@ -78,7 +80,7 @@ class AdminController extends Controller
 
     public function ranking()
     {
-        $users = User::where('admin', '!=', '1')->get();
+        $users = User::where('admin', '!=', '1')->whereStatus(3)->get();
         $ranking = array();
         foreach ($users as $user) {
             $ranking[$user->id] = $user->getPoints();
@@ -96,5 +98,23 @@ class AdminController extends Controller
             UserBase::whereNip($user->nip)->whereNazwa($user->nazwa)->whereMiejscowosc($user->miejscowosc)->whereUlica($user->ulica)->where('id', '!=', $user->id)->delete();
         }
         return 'ok';
+    }
+
+    public function stats(){
+        $stats = [];
+
+        $days = Stats::all();
+
+        $today = date('Y-m-d');
+
+        foreach ($days as $item) {
+            $date = date_create($item->created_at);
+            $stats[] = date_format($date, 'Y-m-d');
+
+        }
+        $days = array_count_values($stats);
+
+        return view('admin.stats', compact('days'));
+
     }
 }
