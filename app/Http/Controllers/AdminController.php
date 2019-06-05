@@ -104,17 +104,26 @@ class AdminController extends Controller
         $stats = [];
 
         $days = Stats::all();
+        $applications = User::where('status', '>=', 2)->get();
 
         $today = date('Y-m-d');
+
 
         foreach ($days as $item) {
             $date = date_create($item->created_at);
             $stats[] = date_format($date, 'Y-m-d');
 
         }
-        $days = array_count_values($stats);
+        $apps = [];
+        foreach ($applications as $item) {
+            $date = date_create($item->created_at);
+            $apps[] = date_format($date, 'Y-m-d');
 
-        return view('admin.stats', compact('days'));
+        }
+        $days = array_count_values($stats);
+        $applications = array_count_values($apps);
+
+        return view('admin.stats', compact('days', 'applications'));
 
     }
 }
