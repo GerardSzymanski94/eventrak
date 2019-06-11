@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'admin', 'nip', 'phone'
+        'name', 'email', 'password', 'admin', 'nip', 'phone', 'status'
     ];
 
     /**
@@ -56,5 +56,23 @@ class User extends Authenticatable
                 $points += $photo->rating;
         }
         return $points;
+    }
+
+    public function getStatus()
+    {
+        $status = $this->status;
+        switch ($status) {
+            case(0):
+            case(1):
+                return "<span style='color:red'>niedokończony</span>";
+                break;
+            case (2):
+                return "<span style='color:yellow'>dokończone - nieocenione</span>";
+                break;
+            case(3):
+                return "<span style='color:green'>zgłoszenie ocenione</span>";
+                break;
+        }
+        return 'niedokończony';
     }
 }

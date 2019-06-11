@@ -59,6 +59,7 @@ class PhotoController extends Controller
                     ]);
                 }
             }
+            auth()->user()->update(['status' => 2]);
         } else {
             return redirect()->back()->with('error', 'Nie dodałeś zdjęć');
         }

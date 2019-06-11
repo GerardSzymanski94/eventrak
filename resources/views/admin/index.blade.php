@@ -12,6 +12,7 @@
             <th scope="col">Imię i nazwisko</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
+            <th scope="col">Status</th>
             <th scope="col">Suma pkt</th>
             <th scope="col"></th>
         </tr>
@@ -26,6 +27,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone }}</td>
+                <td>{!! $user->getStatus() !!}</td>
                 <td>{{ $user->getPoints() }} pkt</td>
                 <td><a class="btn btn-primary"
                        href="{{ route('admin.rating', ['user'=>$user->id]) }}">Zobacz</a>
