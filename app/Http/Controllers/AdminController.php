@@ -20,7 +20,8 @@ class AdminController extends Controller
         $users = User::where('admin', '!=', 1)
             ->leftJoin('user_infos', function ($join) {
                 return $join->on('user_infos.user_id', '=', 'users.id');
-            })->orderByDesc('users.id')->get(['users.nip', 'users.email', 'users.phone', 'user_infos.name as shop_name', 'users.name', 'users.created_at', 'user_infos.city', 'user_infos.zipCode', 'user_infos.street']);
+            })->orderByDesc('users.id')->get(['users.id', 'users.nip', 'users.email', 'users.phone', 'user_infos.name as shop_name', 'users.name',
+                'users.created_at', 'user_infos.city', 'users.status', 'user_infos.zipCode', 'user_infos.street']);
         return view('admin.index', compact('users'));
     }
 
