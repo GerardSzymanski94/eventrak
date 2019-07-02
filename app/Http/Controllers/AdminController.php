@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\StatsChart;
 use App\Photo;
 use App\PhotoType;
 use App\Stats;
 use App\User;
 use App\UserBase;
+use Cyberduck\LaravelExcel\ExporterFacade;
 use Cyberduck\LaravelExcel\ImporterFacade;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Collection;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::where('admin', '!=', 1)->orderByDesc('id')->get();
+        //$users = User::where('admin', '!=', 1)->orderByDesc('id')->get();
+        $users = User::where('admin', '!=', 1)
+            ->leftJoin('user_infos', function ($join) {
+                return $join->on('user_infos.user_id', '=', 'users.id');
+            })->orderByDesc('users.id')->get(['users.nip', 'users.email', 'users.phone', 'user_infos.name as shop_name', 'users.name', 'users.created_at', 'user_infos.city', 'user_infos.zipCode', 'user_infos.street']);
         return view('admin.index', compact('users'));
     }
 
@@ -100,7 +104,8 @@ class AdminController extends Controller
         return 'ok';
     }
 
-    public function stats(){
+    public function stats()
+    {
         $stats = [];
 
         $days = Stats::all();
@@ -125,5 +130,20 @@ class AdminController extends Controller
 
         return view('admin.stats', compact('days', 'applications'));
 
+    }
+
+    public function export()
+    {
+        $users = User::whereStatus(2)
+            ->leftJoin('user_infos', function ($join) {
+                return $join->on('user_infos.user_id', '=', 'users.id');
+            })->get(['users.nip', 'users.email', 'users.phone', 'user_infos.name', 'user_infos.city', 'user_infos.zipCode', 'user_infos.street']);
+        $excel = ExporterFacade::make('Excel');
+
+        $collection = new Collection([
+            ['nip' => 'NIP', 'email' => 'Email', 'phone' => 'Telefon', 'name' => 'Nazwa', 'city' => 'Miejscowość', 'zipCode' => 'Kod pocztowy', 'street' => 'Ulica']
+        ]);
+        $excel->load($users);
+        return $excel->stream('zgloszenia.xls');
     }
 }

@@ -52,5 +52,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/ranking', 'AdminController@ranking')->name('ranking')->middleware('admin');
     Route::get('/cleardb', 'AdminController@clearDB')->name('cleardb')->middleware('admin');
     Route::get('/stats', 'AdminController@stats')->name('stats')->middleware('admin');
+    Route::get('/export', 'AdminController@export')->name('export')->middleware('admin');
     Route::get('/rating/{user}', 'AdminController@rating')->name('rating')->middleware('admin');
 });
